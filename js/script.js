@@ -9,18 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission handling
-    const form = document.getElementById('contactForm');
+    // Trial form submission
+    const form = document.getElementById('trialForm');
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = {
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
+            website: document.getElementById('website').value,
+            email: document.getElementById('email').value
         };
         
-        // Here you would typically send the form data to a server
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message! We will contact you shortly.');
+        console.log('Trial Request:', formData);
+        alert('Success! We\'re cloning your site to free hosting.\nYou\'ll receive access details within 24 hours.');
         form.reset();
     });
 });

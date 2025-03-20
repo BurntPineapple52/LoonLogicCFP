@@ -125,6 +125,44 @@ input, textarea {
     font-size: 1rem;
 }
 
+.trial-benefits {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.trial-benefits ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.trial-benefits li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.trial-benefits li::before {
+    content: "✓";
+    color: var(--silver);
+    position: absolute;
+    left: 0;
+}
+
+.subhead {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+input[type="url"] {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23003366"><path d="M12 0l-12 12h6v12h12v-12h6z"/></svg>') no-repeat 95% center/20px;
+}
+
 footer {
     background: #1a1a1a;
     color: var(--white);
