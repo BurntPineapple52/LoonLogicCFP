@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Handle form submission
-  const form = document.getElementById('myForm');
+  const form = document.getElementById('trialForm');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
