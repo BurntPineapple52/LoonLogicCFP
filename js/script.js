@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const website = document.getElementById('website').value
       const email = document.getElementById('email').value
     
-      const response = await fetch('https://your-worker.your-domain.workers.dev', {
+      const response = await fetch('https://my-first-worker.maxroth52.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
