@@ -30,4 +30,3 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Success! We\'re cloning your site to free hosting.\nYou\'ll receive access details within 24 hours.');
         form.reset();
     });
-});
