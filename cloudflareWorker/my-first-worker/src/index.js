@@ -33,10 +33,13 @@ addEventListener('fetch', event => {
 		});
 	  }
   
+	  //Generate a repo name
+	  const repo_name = `clone-${website.replace(/[^a-zA-Z0-9]/g, '-')}-${Date.now()}`
+  
 	  // Prepare the payload for the GitHub repository_dispatch event
 	  const payload = {
 		event_type: 'trigger-httrack',
-		client_payload: { website, email }
+		client_payload: { website, email, repo_name }
 	  };
   
 	  // Send a POST request to GitHub API
@@ -46,9 +49,9 @@ addEventListener('fetch', event => {
 		  method: 'POST',
 		  headers: {
 			'Content-Type': 'application/json',
-			// Use the secret variable GITHUB_TOKEN; it’s injected by Cloudflare Workers
 			'Authorization': `Bearer ${GITHUB_TOKEN}`,
-			'Accept': 'application/vnd.github+json'
+			'Accept': 'application/vnd.github+json',
+			'User-Agent': 'HTTrackService-Cloudflare-Worker' // **Crucial: Add User-Agent**
 		  },
 		  body: JSON.stringify(payload)
 		}
@@ -56,6 +59,9 @@ addEventListener('fetch', event => {
   
 	  if (!githubResponse.ok) {
 		const errorText = await githubResponse.text();
+		console.error("GitHub API Response Status:", githubResponse.status);
+		console.error("GitHub API Response Headers:", githubResponse.headers);
+		console.error("GitHub API Response Body:", errorText);
 		return new Response(`GitHub API error: ${errorText}`, {
 		  status: githubResponse.status,
 		  headers: { "Access-Control-Allow-Origin": "*" }
@@ -73,4 +79,3 @@ addEventListener('fetch', event => {
 	  });
 	}
   }
-  
